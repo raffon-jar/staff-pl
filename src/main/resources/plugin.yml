@@ -1,0 +1,146 @@
+name: Staff-Plugin
+main: be.raffon.staffpl.staffpl
+version: 0.1
+description: Plugin staff gratuit fait par Rafael Silva Mendes
+author: Raffon
+api-version: 1.16
+commands:
+  staff:
+    description: Command principal.
+    usage: /staff
+    permission: staff.staff
+    aliases:
+      - st
+  inspect:
+    description: Command inspect.
+    usage: /inspect <player>
+    permission: staff.inspect
+    aliases:
+      - ins
+  sanction:
+    description: Command to sanction.
+    usage: /sanction <player>
+    permission: staff.sanction
+    aliases:
+      - ss
+  freeze:
+    description: Command to sanction.
+    usage: /freeze <player>
+    permission: staff.freeze
+  mute:
+    description: Command to mute.
+    usage: /mute <player> <time> [reason]
+    permission: staff.mute
+  tempban:
+    description: Command to mute.
+    usage: /tempban <player> <time> [reason]
+    permission: staff.tempban
+  ban:
+    description: Command to ban.
+    usage: /ban <player> [reason]
+    permission: staff.ban
+  modlogs:
+    description: Command to have player logs.
+    usage: /modlogs <player>
+    permission: staff.modlogs
+  report:
+    description: Command to report.
+    usage: /report <player> <reason>
+    permission: staff.report
+  reports:
+    description: Command to reports.
+    usage: /reports
+    permission: staff.reports
+  randomtp:
+    description: Command to randomly teleport to players.
+    usage: /randomtp
+    permission: staff.randomtp
+  baltop:
+    description: Command to see world's baltop.
+    usage: /baltop
+    permission: staff.baltop
+  reportcomplete:
+    description: Command to complete report.
+    usage: /reportcomplete <id>
+    permission: staff.reports
+  unmute:
+    description: Command to unmute.
+    usage: /unmute <player>
+    permission: staff.reports
+  unban:
+    description: Command to unban.
+    usage: /unmute <player>
+    permission: staff.unban
+
+permissions:
+  staff.*:
+    description: Gives access to all staff commands
+    children:
+      staff.inspect: true
+      staff.vanish: true
+      staff.fly: true
+      staff.command: true
+      staff.sanction: true
+      staff.freeze: true
+      staff.tempban: true
+      staff.mute: true
+      staff.ban: true
+      staff.kick: true
+      staff.modlogs: true
+      staff.report: true
+      staff.reports: true
+      staff.randomtp: true
+      staff.baltop: true
+      staff.unban: true
+      staff.unmute: true
+  staff.inspect:
+    description: Inspect command
+    default: op
+  staff.vanish:
+    description: Vanish command
+    default: op
+  staff.fly:
+    description: Allow user to fly
+    default: op
+  staff.command:
+    description: Principal command
+    default: op
+  staff.sanction:
+    description: Sanction command
+    default: op
+  staff.freeze:
+    description: Freeze command
+    default: op
+  staff.tempban:
+    description: Tempban command
+    default: op
+  staff.mute:
+    description: Tempmute command
+    default: op
+  staff.ban:
+    description: Tempmute command
+    default: op
+  staff.kick:
+    description: Kick command
+    default: op
+  staff.modlogs:
+    description: Logs command
+    default: op
+  staff.report:
+    description: report command
+    default: op
+  staff.reports:
+    description: reports command
+    default: op
+  staff.randomtp:
+    description: randomtp command
+    default: op
+  staff.baltop:
+    description: baltop command
+    default: op
+  staff.unmute:
+    description: unmute command
+    default: op
+  staff.unban:
+    description: unban command
+    default: op
