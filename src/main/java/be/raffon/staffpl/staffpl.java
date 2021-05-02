@@ -1737,17 +1737,19 @@ public class staffpl extends JavaPlugin implements Listener {
 			ItemMeta meta = is.getItemMeta();
 			obj.add("name", new JsonParser().parse(meta.getDisplayName()));
 			obj.add("amount", new JsonParser().parse(String.valueOf(is.getAmount())));
-			Map<Enchantment, Integer> ench = is.getEnchantments();
-			Iterator it = ench.entrySet().iterator();
-			JsonArray enchants = new JsonArray();
-			while (it.hasNext()) {
-				Map.Entry pair = (Map.Entry) it.next();
-				JsonObject enchant = new JsonObject();
-				enchant.add("name", new JsonParser().parse(((Enchantment) pair.getKey()).getName()));
-				enchant.add("int", new JsonParser().parse(String.valueOf(pair.getValue())));
-				enchants.add(enchant);
+			if(is.getEnchantments() != null) {
+				Map<Enchantment, Integer> ench = is.getEnchantments();
+				Iterator it = ench.entrySet().iterator();
+				JsonArray enchants = new JsonArray();
+				while (it.hasNext()) {
+					Map.Entry pair = (Map.Entry) it.next();
+					JsonObject enchant = new JsonObject();
+					enchant.add("name", new JsonParser().parse(((Enchantment) pair.getKey()).getName()));
+					enchant.add("int", new JsonParser().parse(String.valueOf(pair.getValue())));
+					enchants.add(enchant);
+				}
+				obj.add("enchantment", enchants);
 			}
-			obj.add("enchantment", enchants);
 			obj.add("durability", new JsonParser().parse(String.valueOf(is.getDurability())));
 			String material = String.valueOf(is.getType());
 			obj.add("material", new JsonParser().parse(material));
@@ -2370,9 +2372,10 @@ public class staffpl extends JavaPlugin implements Listener {
 								meta.setOwningPlayer(Bukkit.getOfflinePlayer(UUID.fromString(tplayer)));
 								skull.setItemMeta(meta);
 
-								CItem it = new CItem(skull, "inspect " + name);
 								ArrayList<String> arr = new ArrayList<String>();arr.add("reportcomplete "+id);arr.add("{leave}");
-								it.addLeft(arr);
+								CItem it = new CItem(skull, arr);
+								ArrayList<String> arr2 = new ArrayList<String>();arr2.add("inspect " + name);
+								it.addLeft(arr2);
 								citems.add(it);
 							}
 							if(citems.size() > 0) {

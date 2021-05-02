@@ -11,9 +11,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.util.Consumer;
 
 public class CItem {
-	
+
+	public Consumer<InventoryClickEvent> consumer;
 	public ItemStack itemstack;
 	public ArrayList<String> commands;
 	public ArrayList<String> commandsright;
@@ -28,6 +30,11 @@ public class CItem {
 		this.commands = new ArrayList<String>();
 		this.commands.add(command);
 		this.itemstack = is;
+	}
+
+	public CItem(ItemStack is, Consumer<InventoryClickEvent> consumer) {
+		this.itemstack = is;
+		this.consumer = consumer;
 	}
 
 	public CItem(Material mat, String title, String lore, ArrayList<String> commands) {
@@ -68,6 +75,11 @@ public class CItem {
 	
 	
 	public void execute(Player p, HashMap<String, String> variables, CInventory cinv, InventoryClickEvent evt, InventoryManager inv, Integer page, Boolean right) {
+
+		if(consumer != null) {
+			consumer.accept(evt);
+		}
+
 		if(!right) {
 			for(int i=0; i<commands.size(); i++) {
 				String command = commands.get(i);
