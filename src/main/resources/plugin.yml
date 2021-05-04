@@ -71,6 +71,10 @@ commands:
     description: Command to unban.
     usage: /unmute <player>
     permission: staff.unban
+  offlineclear:
+    description: Command to offlineclear.
+    usage: /offlineclear <player>
+    permission: staff.offlineclear
 
 permissions:
   staff.*:
@@ -93,6 +97,7 @@ permissions:
       staff.baltop: true
       staff.unban: true
       staff.unmute: true
+      staff.offlineclear: true
   staff.inspect:
     description: Inspect command
     default: op
@@ -142,5 +147,8 @@ permissions:
     description: unmute command
     default: op
   staff.unban:
+    description: unban command
+    default: op
+  staff.offlineclear:
     description: unban command
     default: op
