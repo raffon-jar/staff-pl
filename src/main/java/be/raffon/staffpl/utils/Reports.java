@@ -1,11 +1,6 @@
-package be.raffon.staffpl;
+package be.raffon.staffpl.utils;
 
-import be.raffon.staffpl.inventories.CItem;
-
-import java.nio.charset.Charset;
-import java.sql.Array;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;

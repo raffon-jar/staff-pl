@@ -1,4 +1,4 @@
-package be.raffon.staffpl;
+package be.raffon.staffpl.utils;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

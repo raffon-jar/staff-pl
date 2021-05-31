@@ -1,4 +1,4 @@
-package be.raffon.staffpl;
+package be.raffon.staffpl.utils;
 
 import java.security.SecureRandom;
 import java.util.Locale;

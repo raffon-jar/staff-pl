@@ -1,4 +1,4 @@
-package be.raffon.staffpl;
+package be.raffon.staffpl.utils;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
